@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/* INICIO HEADER */
+header{
+    background-color: rgb(2, 2, 36);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;  
+}
+
+h1{
+    color: white;
+} 
+
+.boton-header{
+    background-color: rgb(2, 2, 36);
+    color: white; 
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boton-header:hover{
+    background-color:#80808073 ;
+}
+
+header i{
+    margin-right: 5px;
+}
+/* FIN HEADER */
