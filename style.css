@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
   }
+  
+
+
 
 /* INICIO HEADER */
 header{
@@ -11,7 +14,9 @@ header{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center;  
+    align-items: center; 
+    justify-content: center; 
+    height: 20vh;
 }
 
 h1{
@@ -35,3 +40,82 @@ header i{
     margin-right: 5px;
 }
 /* FIN HEADER */
+
+.container-edicion{
+    display: flex;
+}
+/* INICIO MAIN */
+
+main{
+    background-color: #30343f ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-grow: 1;
+    padding: 30px;
+    height: 80vh;
+}
+
+/* INICIO MEME */
+
+.container-meme{
+    width: 35%;
+    
+}
+
+.img-meme{
+    background-color: black;
+    height: 260px;
+    
+}
+
+.parrafo-meme{
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+
+}
+
+/* FIN DE MEME */
+.boton-descargar-meme{
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
+
+main i{
+    margin-right: 5px; 
+}
+/* FIN DE MAIN */
+
+/* INICIO ASIDE */
+aside{
+    position: fixed;
+    top:0;
+    right: 0;
+    background-color: gray;
+}
+
+/* INICIO PANEL-IMG */
+
+.panel-img{
+    display: block;
+    height: 100vh;
+}
+
+/* FIN PANEL-IMG */
+
+/* INICIO PANEL-TEXTO */
+.panel-texto{
+    display: none;
+    height: 100vh;
+}
+/* FIN PANEL TEXTO */
+
+
+/* #feeee2 blanquito
+#141329 azul
+rgb(134, 137, 155) grisesito */

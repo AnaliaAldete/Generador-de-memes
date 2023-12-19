@@ -20,188 +20,190 @@
         </div>
     </header>
     <!-- FIN HEADER -->
-    <main>
-        <!-- inicio de meme -->
-        <div class="container-meme">
-            <p>TOP TEXT</p>
-            <div class="container-img"></div>
-            <p>BOTTOM TEXT</p>
-        </div>
-        <!-- Fin de meme -->
-        <button><i class="fa-solid fa-download"></i>Descargar meme</button>
-    </main>
-    <!-- inicio aside -->
-    <aside>
-        <button>X</button>
+    <div class="container-edicion">
+        <main>
+            <!-- INICIO MEME -->
+            <div class="container-meme">
+                <p class="parrafo-meme">TOP TEXT</p>
+                <div class="img-meme"></div>
+                <p class="parrafo-meme">BOTTOM TEXT</p>
+            </div>
+            <!-- FIN MEME -->
+            <button class="boton-descargar-meme"><i class="fa-solid fa-download"></i>Descargar meme</button>
+        </main>
+        <!-- inicio aside -->
+        <aside>
+            <button>X</button>
 
-        <!-- inicio panel de imagen -->
-        <section class="panel-img">
-            <h2>IMAGEN</h2>
-            <!-- Inicio url -->
-            <div class="container-input">
-                <label for="input-url">URL</label>
-                <input type="url" id="input-url">
-            </div>
-            <!-- Fin url -->
-            <!-- INICIO FONDO -->
-            <div class="container-fondo">
-                <h3>FONDO</h3>
+            <!-- inicio panel de imagen -->
+            <section class="panel-img">
+                <h2>IMAGEN</h2>
+                <!-- Inicio url -->
                 <div class="container-input">
-                    <label for="input-fondo"></label>
-                    <input type="color" id="input-fondo">
+                    <label for="input-url">URL</label>
+                    <input type="url" id="input-url">
                 </div>
-                <select>
-                    <option value="ninguno">Ninguno</option>
-                    <option value="aclarar">Aclarar</option>
-                    <option value="oscurecer">Oscurecer</option>
-                    <option value="diferencia">Diferencia</option>
-                    <option value="luminosidad">Luminosidad</option>
-                    <option value="multiplicar">Multiplicar</option>
-                </select>
-            </div>
-            <!-- FIN FONDO -->
+                <!-- Fin url -->
+                <!-- INICIO FONDO -->
+                <div class="container-fondo">
+                    <h3>FONDO</h3>
+                    <div class="container-input">
+                        <label for="input-fondo"></label>
+                        <input type="color" id="input-fondo">
+                    </div>
+                    <select>
+                        <option value="ninguno">Ninguno</option>
+                        <option value="aclarar">Aclarar</option>
+                        <option value="oscurecer">Oscurecer</option>
+                        <option value="diferencia">Diferencia</option>
+                        <option value="luminosidad">Luminosidad</option>
+                        <option value="multiplicar">Multiplicar</option>
+                    </select>
+                </div>
+                <!-- FIN FONDO -->
 
-            <!-- INICIO FILTROS -->
-            <div class="container-filtros">
-                <h3>FILTROS</h3>
-                <div class="container-input">
-                    <label for="input-brillo">BRILLO</label>
-                    <input type="range" id="input-brillo">
-                </div>
-                <div class="container-input">
-                    <label for="input-opacidad">OPACIDAD</label>
-                    <input type="range" id="input-opacidad">
-                </div>
-                <div class="container-input">
-                    <label for="input-contraste">CONTRASTE</label>
-                    <input type="range" id="input-contraste">
-                </div>
-                <div class="container-input">
-                    <label for="input-desenfoque">DESENFOQUE</label>
-                    <input type="range" id="input-desenfoque">
-                </div>
-                <div class="container-input">
-                    <label for="input-escala-grises">ESCALA DE GRISES</label>
-                    <input type="range" id="input-escala-grises">
-                </div>
-                <div class="container-input">
-                    <label for="input-sepia">SEPIA</label>
-                    <input type="range" id="input-sepia">
-                </div>
-                <div class="container-input">
-                    <label for="input-hue">HUE</label>
-                    <input type="range" id="input-hue">
-                </div>
-                <div class="container-input">
-                    <label for="input-saturado">SATURADO</label>
-                    <input type="range" id="input-saturado">
-                </div>
-                <div class="container-input">
-                    <label for="input-negativo">NEGATIVO</label>
-                    <input type="range" id="input-negativo">
-                </div>
+                <!-- INICIO FILTROS -->
+                <div class="container-filtros">
+                    <h3>FILTROS</h3>
+                    <div class="container-input">
+                        <label for="input-brillo">BRILLO</label>
+                        <input type="range" id="input-brillo">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-opacidad">OPACIDAD</label>
+                        <input type="range" id="input-opacidad">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-contraste">CONTRASTE</label>
+                        <input type="range" id="input-contraste">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-desenfoque">DESENFOQUE</label>
+                        <input type="range" id="input-desenfoque">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-escala-grises">ESCALA DE GRISES</label>
+                        <input type="range" id="input-escala-grises">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-sepia">SEPIA</label>
+                        <input type="range" id="input-sepia">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-hue">HUE</label>
+                        <input type="range" id="input-hue">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-saturado">SATURADO</label>
+                        <input type="range" id="input-saturado">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-negativo">NEGATIVO</label>
+                        <input type="range" id="input-negativo">
+                    </div>
 
-            </div>
-            <button>Reestablecer filtros</button>
-            <!-- FIN FILTROS -->
-        </section>
-        <!-- Fin panel de imagen -->
+                </div>
+                <button>Reestablecer filtros</button>
+                <!-- FIN FILTROS -->
+            </section>
+            <!-- Fin panel de imagen -->
 
-        <!-- inicio panel de texto -->
-        <section class="panel-texto">
-            <h2>TEXTO</h2>
-            <div class="container-input">
-                <label for="input-texto-arriba">SUPERIOR</label>
-                <textarea id="input-texto-arriba"></textarea>
-            </div>
-            <div class="container-input">
-                <label for="">Sin texto superior</label>
-                <input type="checkbox" id="">
-            </div>
-            <div class="container-input">
-                <label for="input-texto-abajo">INFERIOR</label>
-                <textarea id="input-texto-abajo"></textarea>
-            </div>
-            <div class="container-input">
-                <label for="">Sin texto inferior</label>
-                <input type="checkbox" id="">
-            </div>
-
-            <!-- INICIO FUENTE -->
-            <div class="container-fuente">
-                <select>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
+            <!-- inicio panel de texto -->
+            <section class="panel-texto">
+                <h2>TEXTO</h2>
                 <div class="container-input">
-                    <label for="input-tamanio-letra"></label>
-                    <input type="number" id="input-tamanio-letra">
+                    <label for="input-texto-arriba">SUPERIOR</label>
+                    <textarea id="input-texto-arriba"></textarea>
+                </div>
+                <div class="container-input">
+                    <label for="">Sin texto superior</label>
+                    <input type="checkbox" id="">
+                </div>
+                <div class="container-input">
+                    <label for="input-texto-abajo">INFERIOR</label>
+                    <textarea id="input-texto-abajo"></textarea>
+                </div>
+                <div class="container-input">
+                    <label for="">Sin texto inferior</label>
+                    <input type="checkbox" id="">
                 </div>
 
-                <div class="container-boton-alineacion">
-                    <button>icono</button>
-                    <button>icono</button>
-                    <button>icono</button>
-                </div>
-            </div>
-            <!-- FIN FUENTE -->
+                <!-- INICIO FUENTE -->
+                <div class="container-fuente">
+                    <select>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                    <div class="container-input">
+                        <label for="input-tamanio-letra"></label>
+                        <input type="number" id="input-tamanio-letra">
+                    </div>
 
-            <!-- INICIO COLOR -->
-            <div class="container-color">
+                    <div class="container-boton-alineacion">
+                        <button>icono</button>
+                        <button>icono</button>
+                        <button>icono</button>
+                    </div>
+                </div>
+                <!-- FIN FUENTE -->
+
+                <!-- INICIO COLOR -->
+                <div class="container-color">
+                    <div class="container-input">
+                        <label for="input-color-letra">COLOR</label>
+                        <input type="color" id="input-color-letra">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-color-fondo"></label>
+                        <input type="color" id="input-color-fondo">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-fondo-transparente">Fondo transparente</label>
+                        <input type="checkbox" id="input-fondo-transparente">
+                    </div>
+                </div>
+                <!-- FIN COLOR -->
+
+                <!-- INICIO CONTORNO -->
+                <div class="container-boton-contorno">
+                    <button>NINGUNO</button>
+                    <button>CLARO</button>
+                    <button>OSCURO</button>
+                </div>
+                <!-- FIN CONTORNO -->
+
+                <!-- INICIO ESPACIADO -->
                 <div class="container-input">
-                    <label for="input-color-letra">COLOR</label>
-                    <input type="color" id="input-color-letra">
+                    <label for="input-espaciado">ESPACIADO</label>
+                    <input type="number" id="input-espaciado">
                 </div>
-                <div class="container-input">
-                    <label for="input-color-fondo"></label>
-                    <input type="color" id="input-color-fondo">
+                <!-- FIN ESPACIADO -->
+
+                <!-- INICIO INTERLINEADO -->
+                <div class="container-interlineado">
+                    <h3>INTERLINEADO</h3>
+                    <select>
+                        <option value="0.8">0.8</option>
+                        <option value="1">1</option>
+                        <option value="1.2">1.2</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                    </select>
                 </div>
-                <div class="container-input">
-                    <label for="input-fondo-transparente">Fondo transparente</label>
-                    <input type="checkbox" id="input-fondo-transparente">
-                </div>
-            </div>
-            <!-- FIN COLOR -->
+                <!-- FIN INTERLINEADO -->
 
-            <!-- INICIO CONTORNO -->
-            <div class="container-boton-contorno">
-                <button>NINGUNO</button>
-                <button>CLARO</button>
-                <button>OSCURO</button>
-            </div>
-            <!-- FIN CONTORNO -->
-
-            <!-- INICIO ESPACIADO -->
-            <div class="container-input">
-                <label for="input-espaciado">ESPACIADO</label>
-                <input type="number" id="input-espaciado">
-            </div>
-            <!-- FIN ESPACIADO -->
-
-            <!-- INICIO INTERLINEADO -->
-            <div class="container-interlineado">
-                <h3>INTERLINEADO</h3>
-                <select>
-                    <option value="0.8">0.8</option>
-                    <option value="1">1</option>
-                    <option value="1.2">1.2</option>
-                    <option value="1.5">1.5</option>
-                    <option value="2">2</option>
-                    <option value="2.5">2.5</option>
-                </select>
-            </div>
-            <!-- FIN INTERLINEADO -->
-
-        </section>
-        <!-- FIN PANEL DE TEXTO -->
-    </aside>
+            </section>
+            <!-- FIN PANEL DE TEXTO -->
+        </aside>
+    </div>
     <!-- Fin de aside -->
     <script src="main.js"></script>
 </body>
