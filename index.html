@@ -14,9 +14,9 @@
     <header>
         <h1>Generador de Memes</h1>
         <div class="container-button-header">
-            <button class="boton-header"><i class="fa-regular fa-image"></i>Imagen</button>
-            <button class="boton-header"><i class="fa-solid fa-font"></i>Texto</button>
-            <button class="boton-header"><i class="fa-solid fa-lightbulb"></i>Modo Oscuro</button>
+            <button class="boton-header" id="btn-img"><i class="fa-regular fa-image"></i>Imagen</button>
+            <button class="boton-header" id="btn-texto"><i class="fa-solid fa-font"></i>Texto</button>
+            <button class="boton-header" id="btn-modo-oscuro"><i class="fa-solid fa-lightbulb"></i>Modo Oscuro</button>
         </div>
     </header>
     <!-- FIN HEADER -->
@@ -33,20 +33,21 @@
         </main>
         <!-- inicio aside -->
         <aside>
-            <button>X</button>
+            <!-- <button>X</button> -->
 
             <!-- inicio panel de imagen -->
             <section class="panel-img">
                 <h2>IMAGEN</h2>
                 <!-- Inicio url -->
+                <h3>URL</h3>
                 <div class="container-input">
-                    <label for="input-url">URL</label>
+                    <label for="input-url"></label>
                     <input type="url" id="input-url">
                 </div>
                 <!-- Fin url -->
                 <!-- INICIO FONDO -->
+                <h3>FONDO</h3>
                 <div class="container-fondo">
-                    <h3>FONDO</h3>
                     <div class="container-input">
                         <label for="input-fondo"></label>
                         <input type="color" id="input-fondo">
@@ -63,8 +64,9 @@
                 <!-- FIN FONDO -->
 
                 <!-- INICIO FILTROS -->
+                <h3>FILTROS</h3>
                 <div class="container-filtros">
-                    <h3>FILTROS</h3>
+                    
                     <div class="container-input">
                         <label for="input-brillo">BRILLO</label>
                         <input type="range" id="input-brillo">
@@ -101,13 +103,12 @@
                         <label for="input-negativo">NEGATIVO</label>
                         <input type="range" id="input-negativo">
                     </div>
-
                 </div>
-                <button>Reestablecer filtros</button>
+                
                 <!-- FIN FILTROS -->
             </section>
             <!-- Fin panel de imagen -->
-
+            
             <!-- inicio panel de texto -->
             <section class="panel-texto">
                 <h2>TEXTO</h2>
@@ -202,6 +203,7 @@
 
             </section>
             <!-- FIN PANEL DE TEXTO -->
+            <button class="btn-reestablecer-filtros">Reestablecer filtros</button>
         </aside>
     </div>
     <!-- Fin de aside -->

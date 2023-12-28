@@ -16,8 +16,13 @@ header{
     gap: 15px;
     align-items: center; 
     justify-content: center; 
-    height: 20vh;
+
 }
+
+@media (min-width: 970px){
+    header{
+        height: 20vh;
+    }}
 
 h1{
     color: white;
@@ -41,35 +46,47 @@ header i{
 }
 /* FIN HEADER */
 
+@media (min-width: 970px){
 .container-edicion{
     display: flex;
-}
+}}
 /* INICIO MAIN */
 
 main{
-    background-color: #30343f ;
+    background-color: #FA8072;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
     flex-grow: 1;
-    padding: 30px;
-    height: 80vh;
+    padding: 10px;
+    
 }
+@media (min-width: 970px){
+    main{
+        height: 80vh;
+    }}
 
 /* INICIO MEME */
+.container-meme{
+    width: 80%;}
 
+@media (min-width: 970px){
 .container-meme{
     width: 35%;
     
-}
+}}
 
 .img-meme{
     background-color: black;
-    height: 260px;
+    height: 150px;
     
 }
+@media (min-width: 970px){
+    .img-meme{
+        height: 260px;
+    }}
 
 .parrafo-meme{
     background-color: white;
@@ -82,8 +99,9 @@ main{
 /* FIN DE MEME */
 .boton-descargar-meme{
     padding: 10px;
-    background-color: green;
+    background-color: rgb(2, 2, 36);
     color: white;
+    cursor: pointer;
 }
 
 main i{
@@ -92,19 +110,61 @@ main i{
 /* FIN DE MAIN */
 
 /* INICIO ASIDE */
+
+aside{
+    background-color: rgb(2, 2, 36);
+    padding: 15px;
+    color: white;
+}
+
+
+
+@media (min-width: 970px) {
 aside{
     position: fixed;
     top:0;
     right: 0;
-    background-color: gray;
+    background-color: #a71c40;
+    height: 100vh;
+}}
+
+h2{
+    font-size: 1rem;
+    text-align: center;
+}
+h3,label{
+    font-size: 0.7rem;
+}
+.container-input{
+    display: flex;
+    flex-direction: column;
 }
 
 /* INICIO PANEL-IMG */
-
 .panel-img{
-    display: block;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+
+
+.container-fondo{
+    display: flex;
+    gap: 10px;
+}
+.container-filtros{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap:20px;
+}
+
+@media (min-width: 970px) {
+.container-filtros{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}}
 
 /* FIN PANEL-IMG */
 
@@ -115,7 +175,25 @@ aside{
 }
 /* FIN PANEL TEXTO */
 
+.btn-reestablecer-filtros{
+    padding: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    
+
+}
+
+/* FIN ASIDE */
 
 /* #feeee2 blanquito
 #141329 azul
-rgb(134, 137, 155) grisesito */
+rgb(134, 137, 155) grisesito 
+#f29068 salmon
+*/
+/* background-color: #320854; */
+    /* background-color:  #252935; */
+    /* background-color: #021424; */
+    /* background-color: #fda07f; */
+
+     /* background-color: #8f0327;  */
+    /* background-color: #fda07f; */
