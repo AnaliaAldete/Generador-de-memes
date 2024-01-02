@@ -99,7 +99,7 @@ main{
 /* FIN DE MEME */
 .boton-descargar-meme{
     padding: 10px;
-    background-color: rgb(2, 2, 36);
+    background-color: #8f0327;
     color: white;
     cursor: pointer;
 }
@@ -115,6 +115,8 @@ aside{
     background-color: rgb(2, 2, 36);
     padding: 15px;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -126,6 +128,7 @@ aside{
     right: 0;
     background-color: #a71c40;
     height: 100vh;
+    
 }}
 
 h2{
@@ -135,19 +138,19 @@ h2{
 h3,label{
     font-size: 0.7rem;
 }
-.container-input{
-    display: flex;
-    flex-direction: column;
-}
+
 
 /* INICIO PANEL-IMG */
 .panel-img{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
-
+.panel-img .container-input{
+    display: flex;
+    flex-direction: column;
+}
 
 .container-fondo{
     display: flex;
@@ -166,34 +169,73 @@ h3,label{
     gap: 10px;
 }}
 
+.btn-reestablecer-filtros{
+    padding: 5px;
+    cursor: pointer;
+    align-self: center; 
+}
+
 /* FIN PANEL-IMG */
 
 /* INICIO PANEL-TEXTO */
 .panel-texto{
     display: none;
-    height: 100vh;
+    flex-direction: column;
+    gap: 10px;
+    }
+@media (min-width: 970px) {
+    .panel-texto{
+        width: 175px;
+        height: 100vh;
+    }}
+.container-fuente{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
-/* FIN PANEL TEXTO */
 
-.btn-reestablecer-filtros{
+.letra{
+    width: 50%;
+}
+#input-tamanio-letra{
+    width: 100%;
+}
+
+.container-tamanio-alineacion{
+    display: flex;
+    gap: 5px;
+}
+.container-boton-alineacion{
+    display: flex;
+    gap: 5px;
+}
+.check{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+.btn-alineacion{
+    padding: 0px 5px;
+}
+.container-color{
+    display: flex;
+    gap: 5px;
+}
+
+.btn-contorno{
     padding: 5px;
-    margin-top: 20px;
-    cursor: pointer;
-    
-
 }
+select{
+    width: 100%;
+}
+textarea{
+    width: 100%;
+}
+
+/* FIN PANEL TEXTO */
 
 /* FIN ASIDE */
 
-/* #feeee2 blanquito
-#141329 azul
-rgb(134, 137, 155) grisesito 
-#f29068 salmon
-*/
-/* background-color: #320854; */
-    /* background-color:  #252935; */
-    /* background-color: #021424; */
-    /* background-color: #fda07f; */
 
-     /* background-color: #8f0327;  */
-    /* background-color: #fda07f; */

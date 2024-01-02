@@ -36,7 +36,7 @@
             <!-- <button>X</button> -->
 
             <!-- inicio panel de imagen -->
-            <section class="panel-img">
+            <section class="panel-img" id="panel-img">
                 <h2>IMAGEN</h2>
                 <!-- Inicio url -->
                 <h3>URL</h3>
@@ -66,7 +66,7 @@
                 <!-- INICIO FILTROS -->
                 <h3>FILTROS</h3>
                 <div class="container-filtros">
-                    
+
                     <div class="container-input">
                         <label for="input-brillo">BRILLO</label>
                         <input type="range" id="input-brillo">
@@ -104,92 +104,106 @@
                         <input type="range" id="input-negativo">
                     </div>
                 </div>
-                
+                <button class="btn-reestablecer-filtros">Reestablecer filtros</button>
                 <!-- FIN FILTROS -->
             </section>
             <!-- Fin panel de imagen -->
-            
+
             <!-- inicio panel de texto -->
-            <section class="panel-texto">
+            <section class="panel-texto" id="panel-texto">
                 <h2>TEXTO</h2>
+                <h3>SUPERIOR</h3>
                 <div class="container-input">
-                    <label for="input-texto-arriba">SUPERIOR</label>
+                    <label for="input-texto-arriba"></label>
                     <textarea id="input-texto-arriba"></textarea>
                 </div>
-                <div class="container-input">
-                    <label for="">Sin texto superior</label>
+                <div class="container-input check">
                     <input type="checkbox" id="">
+                    <label for="">Sin texto superior</label>
                 </div>
+                <h3>INFERIOR</h3>
                 <div class="container-input">
-                    <label for="input-texto-abajo">INFERIOR</label>
+                    <label for="input-texto-abajo"></label>
                     <textarea id="input-texto-abajo"></textarea>
                 </div>
-                <div class="container-input">
-                    <label for="">Sin texto inferior</label>
+                <div class="container-input check">
                     <input type="checkbox" id="">
+                    <label for="">Sin texto inferior</label>
+
                 </div>
 
                 <!-- INICIO FUENTE -->
+                <h3>FUENTE</h3>
                 <div class="container-fuente">
                     <select>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <option value="Arial">Arial</option>
+                        <option value="Arial black">Arial black</option>
+                        <option value="American Typewriter">American Typewriter</option>
+                        <option value="Andale Mono">Andale Mono</option>
+                        <option value="omic Sans MS">Comic Sans MS</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
                     </select>
-                    <div class="container-input">
-                        <label for="input-tamanio-letra"></label>
-                        <input type="number" id="input-tamanio-letra">
-                    </div>
+                    <div class="container-tamanio-alineacion">
+                        <div class="container-input letra">
+                            <label for="input-tamanio-letra"></label>
+                            <input type="number" id="input-tamanio-letra">
+                        </div>
 
-                    <div class="container-boton-alineacion">
-                        <button>icono</button>
-                        <button>icono</button>
-                        <button>icono</button>
+                        <div class="container-boton-alineacion">
+                            <button class="btn-alineacion"><i class="fa-solid fa-align-left"></i></button>
+                            <button class="btn-alineacion"><i class="fa-solid fa-align-center"></i></button>
+                            <button class="btn-alineacion"><i class="fa-solid fa-align-right"></i></button>
+                        </div>
                     </div>
                 </div>
                 <!-- FIN FUENTE -->
 
                 <!-- INICIO COLOR -->
                 <div class="container-color">
+                    
                     <div class="container-input">
-                        <label for="input-color-letra">COLOR</label>
+                        <h3>COLOR</h3>
+                        <label for="input-color-letra"></label>
                         <input type="color" id="input-color-letra">
                     </div>
+                    
                     <div class="container-input">
+                        <h3>FONDO</h3>
                         <label for="input-color-fondo"></label>
                         <input type="color" id="input-color-fondo">
                     </div>
-                    <div class="container-input">
-                        <label for="input-fondo-transparente">Fondo transparente</label>
-                        <input type="checkbox" id="input-fondo-transparente">
-                    </div>
+                </div>
+                <div class="container-input check">
+                    <input type="checkbox" id="input-fondo-transparente">
+                    <label for="input-fondo-transparente">Fondo transparente</label>
+                    
                 </div>
                 <!-- FIN COLOR -->
 
                 <!-- INICIO CONTORNO -->
+                <h3>CONTORNO</h3>
                 <div class="container-boton-contorno">
-                    <button>NINGUNO</button>
-                    <button>CLARO</button>
-                    <button>OSCURO</button>
+                    <button class="btn-contorno">Ninguno</button>
+                    <button class="btn-contorno">Claro</button>
+                    <button class="btn-contorno">Oscuro</button>
                 </div>
                 <!-- FIN CONTORNO -->
 
                 <!-- INICIO ESPACIADO -->
+                <h3>ESPACIADO</h3>
                 <div class="container-input">
-                    <label for="input-espaciado">ESPACIADO</label>
+                    <label for="input-espaciado"></label>
                     <input type="number" id="input-espaciado">
                 </div>
                 <!-- FIN ESPACIADO -->
 
                 <!-- INICIO INTERLINEADO -->
+                <h3>INTERLINEADO</h3>
                 <div class="container-interlineado">
-                    <h3>INTERLINEADO</h3>
+                    
                     <select>
                         <option value="0.8">0.8</option>
                         <option value="1">1</option>
@@ -203,7 +217,7 @@
 
             </section>
             <!-- FIN PANEL DE TEXTO -->
-            <button class="btn-reestablecer-filtros">Reestablecer filtros</button>
+            
         </aside>
     </div>
     <!-- Fin de aside -->
