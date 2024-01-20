@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/2b4110b56c.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Generador de memes</title>
 </head>
 
@@ -16,20 +18,24 @@
         <div class="container-button-header">
             <button class="boton-header" id="btn-img"><i class="fa-regular fa-image"></i>Imagen</button>
             <button class="boton-header" id="btn-texto"><i class="fa-solid fa-font"></i>Texto</button>
-            <button class="boton-header" id="btn-cambiar-modo" data-modo="oscuro"><i class="fa-solid fa-lightbulb"></i>Modo claro</button>
+            <button class="boton-header" id="btn-cambiar-modo" data-modo="oscuro"><i
+                    class="fa-solid fa-lightbulb"></i>Modo claro</button>
         </div>
     </header>
     <!-- FIN HEADER -->
     <div class="container-edicion">
         <main>
             <!-- INICIO MEME -->
-            <div class="container-meme">
-                <p class="parrafo-meme">TOP TEXT</p>
-                <div class="img-meme"></div>
-                <p class="parrafo-meme">BOTTOM TEXT</p>
+
+
+            <div class="container-img-meme" id="container-img-meme">
+                <p class="parrafo-meme superior" id="texto-superior">TOP TEXT</p>
+                <!-- <img class="img-meme" id="img-meme" src="" alt="imagen meme"> -->
+                <p class="parrafo-meme inferior" id="texto-inferior">BOTTOM TEXT</p>
             </div>
+
             <!-- FIN MEME -->
-            <button class="boton-descargar-meme"><i class="fa-solid fa-download"></i>Descargar meme</button>
+            <button class="boton-descargar-meme" id="boton-descargar-meme"><i class="fa-solid fa-download"></i>Descargar meme</button>
         </main>
         <!-- inicio aside -->
         <aside>
@@ -39,11 +45,15 @@
             <section class="panel-img" id="panel-img">
                 <h2>IMAGEN</h2>
                 <!-- Inicio url -->
-                <h3>URL</h3>
-                <div class="container-input">
-                    <label for="input-url"></label>
-                    <input type="url" id="input-url">
-                </div>
+                    <div class="container-input container-url">
+                        <label for="input-url">URL</label>
+                        <input type="url" id="input-url" placeholder="Ingrese url de la imagen">
+                    </div>
+                    <div class="container-input">
+                        <label for="input-cargar-img"></label>
+                        <input type="file" name="" id="input-cargar-img" accept="image/png, image/gif, image/jpeg">
+                    </div>
+                
                 <!-- Fin url -->
                 <!-- INICIO FONDO -->
                 <h3>FONDO</h3>
@@ -52,13 +62,13 @@
                         <label for="input-fondo"></label>
                         <input type="color" id="input-fondo">
                     </div>
-                    <select>
-                        <option value="ninguno">Ninguno</option>
-                        <option value="aclarar">Aclarar</option>
-                        <option value="oscurecer">Oscurecer</option>
-                        <option value="diferencia">Diferencia</option>
-                        <option value="luminosidad">Luminosidad</option>
-                        <option value="multiplicar">Multiplicar</option>
+                    <select id="select-tipo-fondo">
+                        <option value="unset">Ninguno</option>
+                        <option value="lighten">Aclarar</option>
+                        <option value="darken">Oscurecer</option>
+                        <option value="difference">Diferencia</option>
+                        <option value="luminosity">Luminosidad</option>
+                        <option value="multiply">Multiplicar</option>
                     </select>
                 </div>
                 <!-- FIN FONDO -->
@@ -69,42 +79,44 @@
 
                     <div class="container-input">
                         <label for="input-brillo">BRILLO</label>
-                        <input type="range" id="input-brillo">
+                        <input type="range" id="input-brillo" min="0" max="1" value="1" step="0.1">
+
+
                     </div>
                     <div class="container-input">
                         <label for="input-opacidad">OPACIDAD</label>
-                        <input type="range" id="input-opacidad">
+                        <input type="range" id="input-opacidad" min="0" max="1" value="1" step="0.1">
                     </div>
                     <div class="container-input">
                         <label for="input-contraste">CONTRASTE</label>
-                        <input type="range" id="input-contraste">
+                        <input type="range" id="input-contraste" min="0" max="100" value="100" step="1">
                     </div>
                     <div class="container-input">
                         <label for="input-desenfoque">DESENFOQUE</label>
-                        <input type="range" id="input-desenfoque">
+                        <input type="range" id="input-desenfoque" min="0" max="10" value="0" step="0.1">
                     </div>
                     <div class="container-input">
                         <label for="input-escala-grises">ESCALA DE GRISES</label>
-                        <input type="range" id="input-escala-grises">
+                        <input type="range" id="input-escala-grises" min="0" max="100" value="0" step="1">
                     </div>
                     <div class="container-input">
                         <label for="input-sepia">SEPIA</label>
-                        <input type="range" id="input-sepia">
+                        <input type="range" id="input-sepia" min="0" max="100" value="0" step="1">
                     </div>
                     <div class="container-input">
                         <label for="input-hue">HUE</label>
-                        <input type="range" id="input-hue">
+                        <input type="range" id="input-hue" min="0" max="359" value="0" step="1">
                     </div>
                     <div class="container-input">
                         <label for="input-saturado">SATURADO</label>
-                        <input type="range" id="input-saturado">
+                        <input type="range" id="input-saturado" min="100" max="1000" value="100" step="1">
                     </div>
                     <div class="container-input">
                         <label for="input-negativo">NEGATIVO</label>
-                        <input type="range" id="input-negativo">
+                        <input type="range" id="input-negativo" min="0" max="1" value="0" step="0.1">
                     </div>
                 </div>
-                <button class="btn-reestablecer-filtros">Reestablecer filtros</button>
+                <button class="btn-reestablecer-filtros" id="btn-filtros">Reestablecer filtros</button>
                 <!-- FIN FILTROS -->
             </section>
             <!-- Fin panel de imagen -->
@@ -115,7 +127,7 @@
                 <h3>SUPERIOR</h3>
                 <div class="container-input">
                     <label for="input-texto-arriba"></label>
-                    <textarea id="input-texto-arriba"></textarea>
+                    <textarea id="input-texto-arriba">TOP TEXT</textarea>
                 </div>
                 <div class="container-input check">
                     <input type="checkbox" id="">
@@ -124,7 +136,7 @@
                 <h3>INFERIOR</h3>
                 <div class="container-input">
                     <label for="input-texto-abajo"></label>
-                    <textarea id="input-texto-abajo"></textarea>
+                    <textarea id="input-texto-abajo">BOTTOM TEXT</textarea>
                 </div>
                 <div class="container-input check">
                     <input type="checkbox" id="">
@@ -163,13 +175,13 @@
 
                 <!-- INICIO COLOR -->
                 <div class="container-color">
-                    
+
                     <div class="container-input">
                         <h3>COLOR</h3>
                         <label for="input-color-letra"></label>
                         <input type="color" id="input-color-letra">
                     </div>
-                    
+
                     <div class="container-input">
                         <h3>FONDO</h3>
                         <label for="input-color-fondo"></label>
@@ -179,7 +191,7 @@
                 <div class="container-input check">
                     <input type="checkbox" id="input-fondo-transparente">
                     <label for="input-fondo-transparente">Fondo transparente</label>
-                    
+
                 </div>
                 <!-- FIN COLOR -->
 
@@ -203,7 +215,7 @@
                 <!-- INICIO INTERLINEADO -->
                 <h3>INTERLINEADO</h3>
                 <div class="container-interlineado">
-                    
+
                     <select>
                         <option value="0.8">0.8</option>
                         <option value="1">1</option>
@@ -217,7 +229,7 @@
 
             </section>
             <!-- FIN PANEL DE TEXTO -->
-            
+
         </aside>
     </div>
     <!-- Fin de aside -->

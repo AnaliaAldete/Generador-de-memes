@@ -42,7 +42,6 @@
 /* FIN MODO CLARO */
 
 
-
 /* INICIO HEADER */
 header {
     /* background-color: rgb(2, 2, 36); */
@@ -93,13 +92,11 @@ header i {
 /* INICIO MAIN */
 
 main {
-    /* background-color: #FA8072; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    flex-grow: 1;
     padding: 10px;
 
 }
@@ -107,39 +104,51 @@ main {
 @media (min-width: 970px) {
     main {
         height: 80vh;
+        flex-grow: 1;
     }
 }
 
 /* INICIO MEME */
-.container-meme {
-    width: 80%;
-}
 
-@media (min-width: 970px) {
-    .container-meme {
-        width: 35%;
-
-    }
-}
-
-.img-meme {
+.container-img-meme {
     background-color: black;
-    height: 150px;
+    position: relative;
+    /* background-size: contain; */
+
 
 }
 
 @media (min-width: 970px) {
-    .img-meme {
-        height: 260px;
+    .container-img-meme {
+        height: 400px;
+        width: 400px;
     }
 }
+
+/* .img-meme{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    } */
 
 .parrafo-meme {
     background-color: white;
     text-align: center;
     padding: 10px;
     font-size: 2rem;
+    width: 100%;
+    height: 60px;
 
+}
+
+.superior {
+    position: absolute;
+    top: 0;
+}
+
+.inferior {
+    position: absolute;
+    bottom: 0;
 }
 
 /* FIN DE MEME */
@@ -159,13 +168,11 @@ main i {
 /* INICIO ASIDE */
 
 aside {
-    /* background-color: rgb(2, 2, 36); */
     padding: 15px;
     color: white;
     display: flex;
     flex-direction: column;
 }
-
 
 
 @media (min-width: 970px) {
@@ -187,19 +194,40 @@ h2 {
 h3,
 label {
     font-size: 0.7rem;
+    font-weight: bold;
 }
 
-
 /* INICIO PANEL-IMG */
+
 .panel-img {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+@media (min-width: 970px) {
+    .panel-img {
+        width: 200px;
+        height: 100vh;
+    }
+}
+
 .panel-img .container-input {
     display: flex;
     flex-direction: column;
+
+}
+
+.panel-img .container-url {
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+
+}
+
+
+#input-url {
+    padding: 3px;
 }
 
 .container-fondo {
@@ -272,7 +300,6 @@ label {
     gap: 5px;
     align-items: center;
 }
-
 
 .btn-alineacion {
     padding: 0px 5px;
