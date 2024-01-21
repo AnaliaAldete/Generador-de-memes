@@ -9,15 +9,15 @@
 .modo-oscuro {
 
     header {
-        background-color: rgb(2, 2, 36);
+        background-color: rgb(2, 2, 36)
     }
 
     main {
-        background-color: #FA8072;
+        background-color: #FA8072
     }
 
     aside {
-        background-color: #a71c40;
+        background-color: #a71c40
     }
 }
 
@@ -27,15 +27,22 @@
 
 .modo-claro {
     header {
-        background-color: rgb(108, 163, 245);
+        background-color: rgb(81 141 229)
+    }
+
+    h1{
+        color: rgb(2, 2, 36);
     }
 
     main {
-        background-color: #f39e95a8;
+        background-color: #fa8072c7
     }
 
     aside {
-        background-color: #ec84a0;
+        background-color: #ec84a0
+    }
+    h2,h3,label{
+        color: black;
     }
 }
 
@@ -44,7 +51,6 @@
 
 /* INICIO HEADER */
 header {
-    /* background-color: rgb(2, 2, 36); */
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -110,48 +116,28 @@ main {
 
 /* INICIO MEME */
 
-.container-img-meme {
+
+.img-meme {
     background-color: black;
-    position: relative;
-    /* background-size: contain; */
-
-
+    height: 70%;
+    background-size: contain; 
 }
 
-@media (min-width: 970px) {
-    .container-img-meme {
-        height: 400px;
-        width: 400px;
-    }
-}
-
-/* .img-meme{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    } */
 
 .parrafo-meme {
     background-color: white;
     text-align: center;
     padding: 10px;
     font-size: 2rem;
-    width: 100%;
-    height: 60px;
+    height: 15%;
+    position: static;
+    /* display: flex;
+    align-items: center; */
+    /* justify-content: center;  si le pongo esto me anula los botones de alineacion, entonces como hago para alienar cuando agrando la letra?*/
 
 }
-
-.superior {
-    position: absolute;
-    top: 0;
-}
-
-.inferior {
-    position: absolute;
-    bottom: 0;
-}
-
 /* FIN DE MEME */
+
 .boton-descargar-meme {
     padding: 10px;
     background-color: #8f0327;
@@ -180,8 +166,8 @@ aside {
         position: fixed;
         top: 0;
         right: 0;
-        background-color: #a71c40;
         height: 100vh;
+        width: 220px;
 
     }
 }
@@ -207,7 +193,6 @@ label {
 
 @media (min-width: 970px) {
     .panel-img {
-        width: 200px;
         height: 100vh;
     }
 }
@@ -218,22 +203,63 @@ label {
 
 }
 
+/* URL */
 .panel-img .container-url {
     flex-direction: row;
     gap: 5px;
     align-items: center;
 
 }
-
+input,textarea, button{
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 #input-url {
-    padding: 3px;
+    padding: 5px;
+    width: 100%;
+    border: none;
+}
+/* FONDO */
+.container-fondo {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 50% 50%;
 }
 
-.container-fondo {
-    display: flex;
-    gap: 10px;
+.panel-img .fondo{
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    
 }
+
+input[type="color"]{
+width: 18px;
+height: 18px;
+border: none;
+background-color: transparent;
+
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch{
+    
+    border-radius: 50%; 
+}
+input[type="color"]::-moz-color-swatch{
+    
+    border-radius: 50%; 
+} 
+
+/* FILTROS */
 
 .container-filtros {
     display: grid;
@@ -266,10 +292,11 @@ label {
 
 @media (min-width: 970px) {
     .panel-texto {
-        width: 175px;
         height: 100vh;
     }
 }
+
+/* FUENTE */
 
 .container-fuente {
     display: flex;
@@ -282,17 +309,43 @@ label {
 }
 
 #input-tamanio-letra {
+    padding: 5px;
     width: 100%;
 }
 
 .container-tamanio-alineacion {
     display: flex;
     gap: 5px;
+    
 }
 
 .container-boton-alineacion {
     display: flex;
     gap: 5px;
+    width: 50%;
+    justify-content: space-around;
+}
+.btn-alineacion {
+    width: 30%;
+}
+
+/* COLOR */
+.panel-texto .color{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+.div-color{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 50%;
 }
 
 .check {
@@ -301,25 +354,39 @@ label {
     align-items: center;
 }
 
-.btn-alineacion {
-    padding: 0px 5px;
-}
-
 .container-color {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
+
+/* CONTORNO */
 
 .btn-contorno {
     padding: 5px;
 }
 
+/* ESPACIADO */
+
+#input-espaciado{
+    padding: 5px;
+    width: 100%;
+}
+
+/* INTERLINEADO */
+
 select {
     width: 100%;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 textarea {
     width: 100%;
+}
+
+
+button{
+    border: none;
 }
 
 /* FIN PANEL TEXTO */

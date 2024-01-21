@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/2b4110b56c.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+        integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Generador de memes</title>
 </head>
 
@@ -27,40 +31,40 @@
         <main>
             <!-- INICIO MEME -->
 
-
-            <div class="container-img-meme" id="container-img-meme">
+            <div class="container-meme" id="container-meme">
                 <p class="parrafo-meme superior" id="texto-superior">TOP TEXT</p>
-                <!-- <img class="img-meme" id="img-meme" src="" alt="imagen meme"> -->
+                <div class="img-meme" id="img-meme"></div>
                 <p class="parrafo-meme inferior" id="texto-inferior">BOTTOM TEXT</p>
             </div>
 
             <!-- FIN MEME -->
-            <button class="boton-descargar-meme" id="boton-descargar-meme"><i class="fa-solid fa-download"></i>Descargar meme</button>
+            <button class="boton-descargar-meme" id="boton-descargar-meme"><i class="fa-solid fa-download"></i>Descargar
+                meme</button>
         </main>
+
         <!-- inicio aside -->
         <aside>
-            <!-- <button>X</button> -->
 
             <!-- inicio panel de imagen -->
             <section class="panel-img" id="panel-img">
                 <h2>IMAGEN</h2>
                 <!-- Inicio url -->
-                    <div class="container-input container-url">
-                        <label for="input-url">URL</label>
-                        <input type="url" id="input-url" placeholder="Ingrese url de la imagen">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-cargar-img"></label>
-                        <input type="file" name="" id="input-cargar-img" accept="image/png, image/gif, image/jpeg">
-                    </div>
-                
+                <div class="container-input container-url">
+                    <label for="input-url">URL</label>
+                    <input type="url" id="input-url" placeholder="Ingrese url de la imagen" name="URL">
+                </div>
+                <div class="container-input">
+                    <label for="input-cargar-img"></label>
+                    <input type="file" name="archivo" id="input-cargar-img" accept="image/png, image/gif, image/jpeg">
+                </div>
+
                 <!-- Fin url -->
                 <!-- INICIO FONDO -->
                 <h3>FONDO</h3>
                 <div class="container-fondo">
-                    <div class="container-input">
-                        <label for="input-fondo"></label>
-                        <input type="color" id="input-fondo">
+                    <div class="container-input fondo">
+                        <input type="color" id="input-fondo" value="#000000" name="color de fondo">
+                        <span id="span-color-fondo-img">#000000</span>
                     </div>
                     <select id="select-tipo-fondo">
                         <option value="unset">Ninguno</option>
@@ -80,8 +84,6 @@
                     <div class="container-input">
                         <label for="input-brillo">BRILLO</label>
                         <input type="range" id="input-brillo" min="0" max="1" value="1" step="0.1">
-
-
                     </div>
                     <div class="container-input">
                         <label for="input-opacidad">OPACIDAD</label>
@@ -130,8 +132,8 @@
                     <textarea id="input-texto-arriba">TOP TEXT</textarea>
                 </div>
                 <div class="container-input check">
-                    <input type="checkbox" id="">
-                    <label for="">Sin texto superior</label>
+                    <input type="checkbox" id="quitar-texto-superior">
+                    <label for="quitar-texto-superior">Sin texto superior</label>
                 </div>
                 <h3>INFERIOR</h3>
                 <div class="container-input">
@@ -139,15 +141,15 @@
                     <textarea id="input-texto-abajo">BOTTOM TEXT</textarea>
                 </div>
                 <div class="container-input check">
-                    <input type="checkbox" id="">
-                    <label for="">Sin texto inferior</label>
+                    <input type="checkbox" id="quitar-texto-inferior">
+                    <label for="quitar-texto-inferior">Sin texto inferior</label>
 
                 </div>
 
                 <!-- INICIO FUENTE -->
                 <h3>FUENTE</h3>
                 <div class="container-fuente">
-                    <select>
+                    <select id="seleccionar-fuente">
                         <option value="Arial">Arial</option>
                         <option value="Arial black">Arial black</option>
                         <option value="American Typewriter">American Typewriter</option>
@@ -160,14 +162,16 @@
                     </select>
                     <div class="container-tamanio-alineacion">
                         <div class="container-input letra">
-                            <label for="input-tamanio-letra"></label>
-                            <input type="number" id="input-tamanio-letra">
+                            <input type="number" id="input-tamanio-letra" value="40">
                         </div>
 
                         <div class="container-boton-alineacion">
-                            <button class="btn-alineacion"><i class="fa-solid fa-align-left"></i></button>
-                            <button class="btn-alineacion"><i class="fa-solid fa-align-center"></i></button>
-                            <button class="btn-alineacion"><i class="fa-solid fa-align-right"></i></button>
+                            <button class="btn-alineacion" id="alineacion-izquierda"><i
+                                    class="fa-solid fa-align-left"></i></button>
+                            <button class="btn-alineacion" id="alineacion-centro"><i
+                                    class="fa-solid fa-align-center"></i></button>
+                            <button class="btn-alineacion" id="alineacion-derecha"><i
+                                    class="fa-solid fa-align-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -175,17 +179,19 @@
 
                 <!-- INICIO COLOR -->
                 <div class="container-color">
-
-                    <div class="container-input">
+                    <div class="div-color">
                         <h3>COLOR</h3>
-                        <label for="input-color-letra"></label>
-                        <input type="color" id="input-color-letra">
+                        <div class="container-input color">
+                            <input type="color" id="input-color-letra" value="#000000">
+                            <span id="span-color-letra">#000000</span>
+                        </div>
                     </div>
-
-                    <div class="container-input">
+                    <div class="div-color">
                         <h3>FONDO</h3>
-                        <label for="input-color-fondo"></label>
-                        <input type="color" id="input-color-fondo">
+                        <div class="container-input color">
+                            <input type="color" id="input-color-fondo" value="#FFFFFF">
+                            <span id="span-color-fondo-texto">#FFFFFF</span>
+                        </div>
                     </div>
                 </div>
                 <div class="container-input check">
@@ -198,9 +204,9 @@
                 <!-- INICIO CONTORNO -->
                 <h3>CONTORNO</h3>
                 <div class="container-boton-contorno">
-                    <button class="btn-contorno">Ninguno</button>
-                    <button class="btn-contorno">Claro</button>
-                    <button class="btn-contorno">Oscuro</button>
+                    <button class="btn-contorno" id="btn-sin-contorno">Ninguno</button>
+                    <button class="btn-contorno" id="btn-contorno-claro">Claro</button>
+                    <button class="btn-contorno" id="btn-contorno-oscuro">Oscuro</button>
                 </div>
                 <!-- FIN CONTORNO -->
 
@@ -208,7 +214,7 @@
                 <h3>ESPACIADO</h3>
                 <div class="container-input">
                     <label for="input-espaciado"></label>
-                    <input type="number" id="input-espaciado">
+                    <input type="number" id="input-espaciado" value="35" min="10" max="50">
                 </div>
                 <!-- FIN ESPACIADO -->
 
@@ -216,7 +222,7 @@
                 <h3>INTERLINEADO</h3>
                 <div class="container-interlineado">
 
-                    <select>
+                    <select id="seleccionar-interlineado">
                         <option value="0.8">0.8</option>
                         <option value="1">1</option>
                         <option value="1.2">1.2</option>
