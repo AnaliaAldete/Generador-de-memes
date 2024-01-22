@@ -1,14 +1,22 @@
+const body = document.body
+//PANELES
 const btnTexto = document.getElementById("btn-texto")
 const btnImg = document.getElementById("btn-img")
 const panelImg = document.getElementById("panel-img")
 const panelTexto = document.getElementById("panel-texto")
 const btnCambiarModo = document.getElementById("btn-cambiar-modo")
-const body = document.body
+//MEME
 const containerMeme = document.getElementById("container-meme")
 const imgMeme = document.getElementById("img-meme")
+const btnDescargarMeme = document.getElementById("boton-descargar-meme")
+
+// ELEMENTOS DE PANEL IMG
 const inputUrl = document.getElementById("input-url")
+const inputCargarImg = document.getElementById("input-cargar-img")
 const inputFondo = document.getElementById("input-fondo")
 const selectTipoFondo = document.getElementById("select-tipo-fondo")
+
+//Filtros
 const inputBrillo = document.getElementById("input-brillo")
 const inputOpacidad = document.getElementById("input-opacidad")
 const inputContraste = document.getElementById("input-contraste")
@@ -19,8 +27,8 @@ const inputHue = document.getElementById("input-hue")
 const inputSaturado = document.getElementById("input-saturado")
 const inputNegativo = document.getElementById("input-negativo")
 const btnFiltros = document.getElementById("btn-filtros")
-const inputCargarImg = document.getElementById("input-cargar-img")
-const btnDescargarMeme = document.getElementById("boton-descargar-meme")
+
+//ELEMENTOS DE PANEL TEXTO
 const inputTextoArriba = document.getElementById("input-texto-arriba")
 const inputTextoAbajo = document.getElementById("input-texto-abajo")
 const textoSuperior = document.getElementById("texto-superior")
@@ -44,8 +52,6 @@ const btnSinContorno = document.getElementById("btn-sin-contorno")
 const btnContornoClaro = document.getElementById("btn-contorno-claro")
 const btnContornoOscuro = document.getElementById("btn-contorno-oscuro")
 
-
-
 // CAMBIAR PANEL
 btnImg.addEventListener('click', () => {
   panelImg.style.display = 'flex'
@@ -59,7 +65,6 @@ btnTexto.addEventListener('click', () => {
 })
 
 // CAMBIAR MODO Y TEXTO DEL BOTON
-
 btnCambiarModo.addEventListener('click', () => {
   body.classList.toggle('modo-oscuro')
   body.classList.toggle('modo-claro')
@@ -75,16 +80,12 @@ const cambiarTextoModo = () => {
   } else {
     btnCambiarModo.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Modo oscuro'
     btnCambiarModo.setAttribute("data-modo", "oscuro")
-
   }
-
 }
-
 
 cambiarTextoModo() //llamo a la funcion sino me aparece invertido el texto en cada modo
 
 btnCambiarModo.addEventListener('click', cambiarTextoModo)
-
 
 //AJUSTAR EL ALTO DEL DIV SEGUN LA PANTALLA
 
@@ -110,35 +111,29 @@ if (window.visualViewport.width < 600) {
 
 // CARGA IMAGEN DEL MEME CON LA URL
 inputUrl.addEventListener('input', () => {
-
-  let urlCargada = inputUrl.value
-  imgMeme.style.background = `url(${urlCargada})`
-  imgMeme.style.backgroundSize = "contain"
-
-}
-
-)
+  imgMeme.style.background = `url(${inputUrl.value}) center/cover no-repeat`
+})
 
 //CARGA IMG DE LA COMPU
 
 inputCargarImg.addEventListener("change", (e) => {
-  const archivo = e.target.files[0];
+  const archivo = e.target.files[0]
   if (archivo) {
-    const reader = new FileReader();
+    const reader = new FileReader()
     reader.onload = (e) => {
-      imgMeme.style.backgroundImage = `url(${e.target.result})`;
-    };
-    reader.readAsDataURL(archivo);
+      imgMeme.style.backgroundImage = `url(${e.target.result})`
+    }
+    reader.readAsDataURL(archivo)
   }
-});
+})
 
 //DESCARGAR MEME
 
 btnDescargarMeme.addEventListener("click", () => {
   domtoimage.toBlob(containerMeme).then((blob) => {
-    window.saveAs(blob, "meme.png");
-  });
-});
+    window.saveAs(blob, "meme.png")
+  })
+})
 
 //CAMBIA COLOR FONDO DEL MEME y actualiza el span con el color
 inputFondo.addEventListener('input', () => {
@@ -147,20 +142,15 @@ inputFondo.addEventListener('input', () => {
   spanColorFondoImg.innerText = colorFondo
 })
 
-
-
 //CAMBIA TIPO DE FONDO DEL MEME
 selectTipoFondo.addEventListener('change', () => {
-  let tipoFondo = selectTipoFondo.value
-  imgMeme.style.backgroundBlendMode = tipoFondo
+  imgMeme.style.backgroundBlendMode = selectTipoFondo.value
 })
 
 // CAMBIA FILTROS
 
 const aplicarFiltros = () => {
-
   imgMeme.style.filter = `brightness(${inputBrillo.value}) opacity(${inputOpacidad.value}) contrast(${inputContraste.value}%) blur(${inputDesenfoque.value}px) grayscale(${inputEscalaGrises.value}%) sepia(${inputSepia.value}%) hue-rotate(${inputHue.value}deg) saturate(${inputSaturado.value}%) invert(${inputNegativo.value})`
-
 }
 
 inputBrillo.addEventListener("input", aplicarFiltros);
@@ -198,7 +188,6 @@ btnFiltros.addEventListener("click", reestablecerFiltros)
 const actualizarTexto = () => {
   textoSuperior.innerText = inputTextoArriba.value
   textoInferior.innerText = inputTextoAbajo.value
-
 }
 
 inputTextoArriba.addEventListener("input", actualizarTexto)
@@ -225,9 +214,7 @@ inputQuitarTextoInferior.addEventListener("change", quitarParrafos)
 //CAMBIAR FUENTE DE PARRAFOS
 
 selectFuente.addEventListener('change', () => {
-
   let fuente = selectFuente.value
-
   textoSuperior.style.fontFamily = fuente
   textoInferior.style.fontFamily = fuente
 })
@@ -236,9 +223,9 @@ selectFuente.addEventListener('change', () => {
 
 inputTamanioLetra.addEventListener("change", () => {
   textoSuperior.style.fontSize = `${inputTamanioLetra.value}px`
-  // textoSuperior.style.display = 'flex';
-  // textoSuperior.style.justifyContent = 'center';
-  // textoSuperior.style.alignItems = 'center'
+  //textoSuperior.style.display = 'flex';
+  //textoSuperior.style.justifyContent = 'center';
+  //textoSuperior.style.alignItems = 'center'
   textoInferior.style.fontSize = `${inputTamanioLetra.value}px`
   //   textoInferior.style.display = 'flex';
   //   textoInferior.style.justifyContent = 'center';
@@ -312,7 +299,6 @@ btnContornoOscuro.addEventListener("click", () => {
   textoInferior.style.textShadow = "2px 2px 2px black"
 
 })
-
 
 //CAMBIAR ESPACIADO
 

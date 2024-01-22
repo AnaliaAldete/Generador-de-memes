@@ -49,16 +49,25 @@
             <section class="panel-img" id="panel-img">
                 <h2>IMAGEN</h2>
                 <!-- Inicio url -->
-                <div class="container-input container-url">
-                    <label for="input-url">URL</label>
-                    <input type="url" id="input-url" placeholder="Ingrese url de la imagen" name="URL">
+                <div class="container-agregar-img">
+                    <div class="container-input container-url">
+                        <label for="input-url">URL</label>
+                        <input type="url" id="input-url" placeholder="Ingrese url de la imagen" name="URL">
+                    </div>
+                    <!-- Fin url -->
+                    <!-- Inicio carga img -->
+                    <div class="container-input container-carga">
+                        <input type="file" name="archivo" id="input-cargar-img"
+                            accept="image/png, image/gif, image/jpeg">
+                        <label for="input-cargar-img" class="label-cargar-img">
+                            <i class="fa-solid fa-upload"></i>
+                            <span class="iborrainputfile">Seleccionar archivo</span>
+                        </label>
+                    </div>
+                    <!-- Fin carga img -->
                 </div>
-                <div class="container-input">
-                    <label for="input-cargar-img"></label>
-                    <input type="file" name="archivo" id="input-cargar-img" accept="image/png, image/gif, image/jpeg">
-                </div>
+                
 
-                <!-- Fin url -->
                 <!-- INICIO FONDO -->
                 <h3>FONDO</h3>
                 <div class="container-fondo">
