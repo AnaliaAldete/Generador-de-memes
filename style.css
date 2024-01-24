@@ -39,7 +39,7 @@
     }
 
     aside {
-        background-color: #ec84a0
+        background-color: #e57373
     }
     h2,h3,label{
         color: black;
@@ -74,13 +74,13 @@ h1 {
     background-color: rgb(2, 2, 36);
     color: white;
     padding: 5px 10px;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .boton-header:hover {
     background-color: #80808073;
+    transform: scale(1.1);
 }
 
 header i {
@@ -101,7 +101,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 20px;
     padding: 10px;
 
@@ -125,13 +124,12 @@ main {
 
 .parrafo-meme {
     background-color: white;
-    text-align: center;
-    padding: 10px;
     font-size: 2rem;
     height: 15%;
-    /* display: flex;
-    align-items: center; */
-    /* justify-content: center;  si le pongo esto me anula los botones de alineacion, entonces como hago para alienar cuando agrando la letra?*/
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding-inline: 10px;
 
 }
 /* FIN DE MEME */
@@ -140,7 +138,9 @@ main {
     padding: 10px;
     background-color: #8f0327;
     color: white;
-    cursor: pointer;
+}
+.boton-descargar-meme:hover{
+    transform: scale(1.1)
 }
 
 main i {
@@ -192,6 +192,7 @@ input,textarea, button{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: space-around;
 }
 
 @media (min-width: 970px) {
@@ -322,11 +323,18 @@ input[type="color"]::-moz-color-swatch{
         gap: 10px;
     }
 }
-
+.label-escala-grises{
+white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .btn-reestablecer-filtros {
     padding: 5px;
     cursor: pointer;
     align-self: center;
+}
+.btn-reestablecer-filtros:hover{
+    transform: scale(1.1);
 }
 
 /* FIN PANEL-IMG */
@@ -348,13 +356,16 @@ textarea {
     width: 100%;
 }
 
+
 /* FUENTE */
 
-.container-fuente {
+.container-texto,.container-fuente, .container-espaciado{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
+
 
 .letra {
     width: 50%;

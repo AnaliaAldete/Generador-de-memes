@@ -94,8 +94,8 @@ window.visualViewport.addEventListener("resize", () => {
     containerMeme.style.height = `${window.visualViewport.width - 30}px`
     containerMeme.style.width = `${window.visualViewport.width - 30}px`
   } else {
-    containerMeme.style.height = "350px"
-    containerMeme.style.width = "350px"
+    containerMeme.style.height = "500px"
+    containerMeme.style.width = "500px"
   }
 })
 
@@ -103,8 +103,8 @@ if (window.visualViewport.width < 600) {
   containerMeme.style.height = `${window.visualViewport.width - 30}px`
   containerMeme.style.width = `${window.visualViewport.width - 30}px`
 } else {
-  containerMeme.style.height = "350px"
-  containerMeme.style.width = "350px"
+  containerMeme.style.height = "500px"
+  containerMeme.style.width = "500px"
 }
 
 // INICIO PANEL IMAGEN
@@ -195,18 +195,55 @@ inputTextoAbajo.addEventListener("input", actualizarTexto)
 
 //QUITAR PARRAFOS
 
+// const quitarParrafos = () => {
+//   if (inputQuitarTextoSuperior.checked) {
+//     textoSuperior.style.display = 'none'
+//     imgMeme.style.height="85%"
+//   } else {
+//     textoSuperior.style.display = 'flex'
+//     imgMeme.style.height="70%"
+
+//   }
+//   if (inputQuitarTextoInferior.checked) {
+//     textoInferior.style.display = 'none'
+//     imgMeme.style.height="85%"
+//   } else {
+//     textoInferior.style.display = 'flex'
+//     imgMeme.style.height="70%"
+//   }
+// }
+
 const quitarParrafos = () => {
+  
   if (inputQuitarTextoSuperior.checked) {
-    textoSuperior.style.display = 'none'
+    textoSuperior.style.display = 'none';
   } else {
-    textoSuperior.style.display = 'block'
+    textoSuperior.style.display = 'flex';
   }
+
   if (inputQuitarTextoInferior.checked) {
-    textoInferior.style.display = 'none'
+    textoInferior.style.display = 'none';
   } else {
-    textoInferior.style.display = 'block'
+    textoInferior.style.display = 'flex';
   }
-}
+  
+  let alturaConDosTextos = '70%';
+  let alturaSinNingunTexto = '100%';
+  let alturaConUnTexto='85%'
+ 
+  if (inputQuitarTextoSuperior.checked && inputQuitarTextoInferior.checked) {
+    imgMeme.style.height = alturaSinNingunTexto;
+  } else if(inputQuitarTextoSuperior.checked){
+    imgMeme.style.height = alturaConUnTexto;
+  }else if(inputQuitarTextoInferior.checked){
+    imgMeme.style.height = alturaConUnTexto;
+  }else{
+    imgMeme.style.height = alturaConDosTextos;
+  }
+};
+
+
+
 
 inputQuitarTextoSuperior.addEventListener("change", quitarParrafos)
 inputQuitarTextoInferior.addEventListener("change", quitarParrafos)
@@ -223,32 +260,26 @@ selectFuente.addEventListener('change', () => {
 
 inputTamanioLetra.addEventListener("change", () => {
   textoSuperior.style.fontSize = `${inputTamanioLetra.value}px`
-  //textoSuperior.style.display = 'flex';
-  //textoSuperior.style.justifyContent = 'center';
-  //textoSuperior.style.alignItems = 'center'
   textoInferior.style.fontSize = `${inputTamanioLetra.value}px`
-  //   textoInferior.style.display = 'flex';
-  //   textoInferior.style.justifyContent = 'center';
-  //   textoInferior.style.alignItems = 'center'
 }
 )
 
 //CAMBIAR ALINEACION DEL PARRAFOS
 
 btnAlineacionIzquierda.addEventListener("click", () => {
-  textoSuperior.style.textAlign = "left"
-  textoInferior.style.textAlign = "left"
+  textoSuperior.style.justifyContent = "left"
+  textoInferior.style.justifyContent = "left"
 
 })
 
 btnAlineacionCentro.addEventListener("click", () => {
-  textoSuperior.style.textAlign = "center"
-  textoInferior.style.textAlign = "center"
+  textoSuperior.style.justifyContent = "center"
+  textoInferior.style.justifyContent = "center"
 })
 
 btnAlineacionDerecha.addEventListener("click", () => {
-  textoSuperior.style.textAlign = "right"
-  textoInferior.style.textAlign = "right"
+  textoSuperior.style.justifyContent = "right"
+  textoInferior.style.justifyContent = "right"
 })
 
 //CAMBIAR COLOR DE LETRA DE PARRAFOS y actualiza el span con el color
@@ -303,15 +334,15 @@ btnContornoOscuro.addEventListener("click", () => {
 //CAMBIAR ESPACIADO
 
 inputEspaciado.addEventListener("input", () => {
-  textoSuperior.style.padding = `${inputEspaciado.value}px 10px`
-  textoInferior.style.padding = `${inputEspaciado.value}px 10px`
+  textoSuperior.style.letterSpacing = `${inputEspaciado.value}px`
+  textoInferior.style.letterSpacing = `${inputEspaciado.value}px`
 })
 
 //CAMBIAR INTERLINEADO
 
 selectInterlineado.addEventListener("change", () => {
-  textoSuperior.style.lineHeight = selectInterlineado.value
-  textoInferior.style.lineHeight = selectInterlineado.value
+  textoSuperior.style.lineHeight = `${selectInterlineado.value}`
+  textoInferior.style.lineHeight = `${selectInterlineado.value}`
 })
 
 //FIN PANEL DE TEXTO

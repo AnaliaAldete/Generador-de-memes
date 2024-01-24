@@ -30,7 +30,6 @@
     <div class="container-edicion">
         <main>
             <!-- INICIO MEME -->
-
             <div class="container-meme" id="container-meme">
                 <p class="parrafo-meme superior" id="texto-superior">TOP TEXT</p>
                 <div class="img-meme" id="img-meme"></div>
@@ -72,7 +71,8 @@
                 <h3>FONDO</h3>
                 <div class="container-fondo">
                     <div class="container-input fondo">
-                        <input type="color" id="input-fondo" value="#000000" name="color de fondo">
+                        <label for="input-fondo"></label>
+                        <input type="color" id="input-fondo" value="#000000" name="color-de-fondo">
                         <span id="span-color-fondo-img">#000000</span>
                     </div>
                     <select id="select-tipo-fondo">
@@ -92,39 +92,39 @@
 
                     <div class="container-input">
                         <label for="input-brillo">BRILLO</label>
-                        <input type="range" id="input-brillo" min="0" max="1" value="1" step="0.1">
+                        <input type="range" id="input-brillo" min="0" max="1" value="1" step="0.1" name="brillo">
                     </div>
                     <div class="container-input">
                         <label for="input-opacidad">OPACIDAD</label>
-                        <input type="range" id="input-opacidad" min="0" max="1" value="1" step="0.1">
+                        <input type="range" id="input-opacidad" min="0" max="1" value="1" step="0.1" name="opacidad">
                     </div>
                     <div class="container-input">
                         <label for="input-contraste">CONTRASTE</label>
-                        <input type="range" id="input-contraste" min="0" max="100" value="100" step="1">
+                        <input type="range" id="input-contraste" min="0" max="100" value="100" step="1" name="contrastre">
                     </div>
                     <div class="container-input">
                         <label for="input-desenfoque">DESENFOQUE</label>
-                        <input type="range" id="input-desenfoque" min="0" max="10" value="0" step="0.1">
+                        <input type="range" id="input-desenfoque" min="0" max="10" value="0" step="0.1" name="desenfoque">
                     </div>
                     <div class="container-input">
-                        <label for="input-escala-grises">ESCALA DE GRISES</label>
-                        <input type="range" id="input-escala-grises" min="0" max="100" value="0" step="1">
+                        <label for="input-escala-grises" class="label-escala-grises">ESCALA DE GRISES</label>
+                        <input type="range" id="input-escala-grises" min="0" max="100" value="0" step="1" name="escala de grises">
                     </div>
                     <div class="container-input">
                         <label for="input-sepia">SEPIA</label>
-                        <input type="range" id="input-sepia" min="0" max="100" value="0" step="1">
+                        <input type="range" id="input-sepia" min="0" max="100" value="0" step="1" name="sepia">
                     </div>
                     <div class="container-input">
                         <label for="input-hue">HUE</label>
-                        <input type="range" id="input-hue" min="0" max="359" value="0" step="1">
+                        <input type="range" id="input-hue" min="0" max="359" value="0" step="1" name="hue">
                     </div>
                     <div class="container-input">
                         <label for="input-saturado">SATURADO</label>
-                        <input type="range" id="input-saturado" min="100" max="1000" value="100" step="1">
+                        <input type="range" id="input-saturado" min="100" max="1000" value="100" step="1" name="saturacion">
                     </div>
                     <div class="container-input">
                         <label for="input-negativo">NEGATIVO</label>
-                        <input type="range" id="input-negativo" min="0" max="1" value="0" step="0.1">
+                        <input type="range" id="input-negativo" min="0" max="1" value="0" step="0.1" name="negativo">
                     </div>
                 </div>
                 <button class="btn-reestablecer-filtros" id="btn-filtros">Reestablecer filtros</button>
@@ -135,22 +135,20 @@
             <!-- inicio panel de texto -->
             <section class="panel-texto" id="panel-texto">
                 <h2>TEXTO</h2>
-                <h3>SUPERIOR</h3>
-                <div class="container-input">
-                    <label for="input-texto-arriba"></label>
+                <div class="container-input container-texto">
+                    <label for="input-texto-arriba">SUPERIOR</label>
                     <textarea id="input-texto-arriba">TOP TEXT</textarea>
                 </div>
                 <div class="container-input check">
-                    <input type="checkbox" id="quitar-texto-superior">
+                    <input type="checkbox" id="quitar-texto-superior" name="sin-texto-superior">
                     <label for="quitar-texto-superior">Sin texto superior</label>
                 </div>
-                <h3>INFERIOR</h3>
-                <div class="container-input">
-                    <label for="input-texto-abajo"></label>
+                <div class="container-input container-texto">
+                    <label for="input-texto-abajo">INFERIOR</label>
                     <textarea id="input-texto-abajo">BOTTOM TEXT</textarea>
                 </div>
                 <div class="container-input check">
-                    <input type="checkbox" id="quitar-texto-inferior">
+                    <input type="checkbox" id="quitar-texto-inferior" name="sin-texto-inferior">
                     <label for="quitar-texto-inferior">Sin texto inferior</label>
 
                 </div>
@@ -171,7 +169,8 @@
                     </select>
                     <div class="container-tamanio-alineacion">
                         <div class="container-input letra">
-                            <input type="number" id="input-tamanio-letra" value="40">
+                            <label for="input-tamanio-letra"></label>
+                            <input type="number" id="input-tamanio-letra" value="40" name="tamanio-letra" min="10" max="60">
                         </div>
 
                         <div class="container-boton-alineacion">
@@ -191,20 +190,22 @@
                     <div class="div-color">
                         <h3>COLOR</h3>
                         <div class="container-input color">
-                            <input type="color" id="input-color-letra" value="#000000">
+                            <label for="input-color-letra"></label>
+                            <input type="color" id="input-color-letra" value="#000000" name="color-letra">
                             <span id="span-color-letra">#000000</span>
                         </div>
                     </div>
                     <div class="div-color">
                         <h3>FONDO</h3>
                         <div class="container-input color">
-                            <input type="color" id="input-color-fondo" value="#FFFFFF">
+                            <label for="input-color-fondo"></label>
+                            <input type="color" id="input-color-fondo" value="#FFFFFF" name="color-fondo-parrafo">
                             <span id="span-color-fondo-texto">#FFFFFF</span>
                         </div>
                     </div>
                 </div>
                 <div class="container-input check">
-                    <input type="checkbox" id="input-fondo-transparente">
+                    <input type="checkbox" id="input-fondo-transparente" name="fondo-transparente">
                     <label for="input-fondo-transparente">Fondo transparente</label>
 
                 </div>
@@ -220,17 +221,15 @@
                 <!-- FIN CONTORNO -->
 
                 <!-- INICIO ESPACIADO -->
-                <h3>ESPACIADO</h3>
-                <div class="container-input">
-                    <label for="input-espaciado"></label>
-                    <input type="number" id="input-espaciado" value="35" min="10" max="50">
+                <div class="container-input container-espaciado">
+                    <label for="input-espaciado">ESPACIADO</label>
+                    <input type="number" id="input-espaciado" value="1" min="1" max="30" name="espaciado">
                 </div>
                 <!-- FIN ESPACIADO -->
 
                 <!-- INICIO INTERLINEADO -->
                 <h3>INTERLINEADO</h3>
                 <div class="container-interlineado">
-
                     <select id="seleccionar-interlineado">
                         <option value="0.8">0.8</option>
                         <option value="1">1</option>
