@@ -1,253 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://kit.fontawesome.com/2b4110b56c.js"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+			integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+			integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<title>Generador de memes</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/2b4110b56c.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
-        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
-        integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Generador de memes</title>
-</head>
+	<body class="modo-oscuro">
+		<!-- INICIO HEADER -->
+		<header>
+			<h1>Generador de Memes</h1>
+			<div class="container-button-header">
+				<button class="boton-header" id="btn-img">
+					<i class="fa-regular fa-image"></i>Imagen
+				</button>
+				<button class="boton-header" id="btn-texto">
+					<i class="fa-solid fa-font"></i>Texto
+				</button>
+				<button class="boton-header" id="btn-cambiar-modo" data-modo="oscuro">
+					<i class="fa-solid fa-lightbulb"></i>Modo claro
+				</button>
+			</div>
+		</header>
+		<!-- FIN HEADER -->
+		<div class="container-edicion">
+			<main>
+				<!-- INICIO MEME -->
+				<div class="container-meme" id="container-meme">
+					<p class="parrafo-meme superior" id="texto-superior">TOP TEXT</p>
+					<div class="img-meme" id="img-meme"></div>
+					<p class="parrafo-meme inferior" id="texto-inferior">BOTTOM TEXT</p>
+				</div>
 
-<body class="modo-oscuro">
-    <!-- INICIO HEADER -->
-    <header>
-        <h1>Generador de Memes</h1>
-        <div class="container-button-header">
-            <button class="boton-header" id="btn-img"><i class="fa-regular fa-image"></i>Imagen</button>
-            <button class="boton-header" id="btn-texto"><i class="fa-solid fa-font"></i>Texto</button>
-            <button class="boton-header" id="btn-cambiar-modo" data-modo="oscuro"><i
-                    class="fa-solid fa-lightbulb"></i>Modo claro</button>
-        </div>
-    </header>
-    <!-- FIN HEADER -->
-    <div class="container-edicion">
-        <main>
-            <!-- INICIO MEME -->
-            <div class="container-meme" id="container-meme">
-                <p class="parrafo-meme superior" id="texto-superior">TOP TEXT</p>
-                <div class="img-meme" id="img-meme"></div>
-                <p class="parrafo-meme inferior" id="texto-inferior">BOTTOM TEXT</p>
-            </div>
+				<!-- FIN MEME -->
+				<button class="boton-descargar-meme" id="boton-descargar-meme">
+					<i class="fa-solid fa-download"></i>Descargar meme
+				</button>
+			</main>
 
-            <!-- FIN MEME -->
-            <button class="boton-descargar-meme" id="boton-descargar-meme"><i class="fa-solid fa-download"></i>Descargar
-                meme</button>
-        </main>
+			<!-- inicio aside -->
+			<aside>
+				<!-- inicio panel de imagen -->
+				<section class="panel-img" id="panel-img">
+					<h2>IMAGEN</h2>
+					<!-- Inicio url -->
+					<div class="container-agregar-img">
+						<div class="container-input container-url">
+							<label for="input-url">URL</label>
+							<input
+								type="url"
+								id="input-url"
+								placeholder="Ingrese url de la imagen"
+								name="URL"
+							/>
+						</div>
+						<!-- Fin url -->
+						<!-- Inicio carga img -->
+						<div class="container-input container-carga">
+							<input
+								type="file"
+								name="archivo"
+								id="input-cargar-img"
+								accept="image/png, image/gif, image/jpeg"
+							/>
+							<label for="input-cargar-img" class="label-cargar-img">
+								<i class="fa-solid fa-upload"></i>
+								<span class="iborrainputfile">Seleccionar archivo</span>
+							</label>
+						</div>
+						<!-- Fin carga img -->
+					</div>
 
-        <!-- inicio aside -->
-        <aside>
+					<!-- INICIO FONDO -->
+					<h3>FONDO</h3>
+					<div class="container-fondo">
+						<div class="container-input fondo">
+							<label for="input-fondo"></label>
+							<input
+								type="color"
+								id="input-fondo"
+								value="#000000"
+								name="color-de-fondo"
+							/>
+							<span id="span-color-fondo-img">#000000</span>
+						</div>
+						<select id="select-tipo-fondo">
+							<option value="unset">Ninguno</option>
+							<option value="lighten">Aclarar</option>
+							<option value="darken">Oscurecer</option>
+							<option value="difference">Diferencia</option>
+							<option value="luminosity">Luminosidad</option>
+							<option value="multiply">Multiplicar</option>
+						</select>
+					</div>
+					<!-- FIN FONDO -->
 
-            <!-- inicio panel de imagen -->
-            <section class="panel-img" id="panel-img">
-                <h2>IMAGEN</h2>
-                <!-- Inicio url -->
-                <div class="container-agregar-img">
-                    <div class="container-input container-url">
-                        <label for="input-url">URL</label>
-                        <input type="url" id="input-url" placeholder="Ingrese url de la imagen" name="URL">
-                    </div>
-                    <!-- Fin url -->
-                    <!-- Inicio carga img -->
-                    <div class="container-input container-carga">
-                        <input type="file" name="archivo" id="input-cargar-img"
-                            accept="image/png, image/gif, image/jpeg">
-                        <label for="input-cargar-img" class="label-cargar-img">
-                            <i class="fa-solid fa-upload"></i>
-                            <span class="iborrainputfile">Seleccionar archivo</span>
-                        </label>
-                    </div>
-                    <!-- Fin carga img -->
-                </div>
-                
+					<!-- INICIO FILTROS -->
+					<h3>FILTROS</h3>
+					<div class="container-filtros">
+						<div class="container-input">
+							<label for="input-brillo">BRILLO</label>
+							<input
+								type="range"
+								id="input-brillo"
+								min="0"
+								max="1"
+								value="1"
+								step="0.1"
+								name="brillo"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-opacidad">OPACIDAD</label>
+							<input
+								type="range"
+								id="input-opacidad"
+								min="0"
+								max="1"
+								value="1"
+								step="0.1"
+								name="opacidad"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-contraste">CONTRASTE</label>
+							<input
+								type="range"
+								id="input-contraste"
+								min="0"
+								max="100"
+								value="100"
+								step="1"
+								name="contrastre"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-desenfoque">DESENFOQUE</label>
+							<input
+								type="range"
+								id="input-desenfoque"
+								min="0"
+								max="10"
+								value="0"
+								step="0.1"
+								name="desenfoque"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-escala-grises" class="label-escala-grises"
+								>ESCALA DE GRISES</label
+							>
+							<input
+								type="range"
+								id="input-escala-grises"
+								min="0"
+								max="100"
+								value="0"
+								step="1"
+								name="escala de grises"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-sepia">SEPIA</label>
+							<input
+								type="range"
+								id="input-sepia"
+								min="0"
+								max="100"
+								value="0"
+								step="1"
+								name="sepia"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-hue">HUE</label>
+							<input
+								type="range"
+								id="input-hue"
+								min="0"
+								max="359"
+								value="0"
+								step="1"
+								name="hue"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-saturado">SATURADO</label>
+							<input
+								type="range"
+								id="input-saturado"
+								min="100"
+								max="1000"
+								value="100"
+								step="1"
+								name="saturacion"
+							/>
+						</div>
+						<div class="container-input">
+							<label for="input-negativo">NEGATIVO</label>
+							<input
+								type="range"
+								id="input-negativo"
+								min="0"
+								max="1"
+								value="0"
+								step="0.1"
+								name="negativo"
+							/>
+						</div>
+					</div>
+					<button class="btn-reestablecer-filtros" id="btn-filtros">
+						Reestablecer filtros
+					</button>
+					<!-- FIN FILTROS -->
+				</section>
+				<!-- Fin panel de imagen -->
 
-                <!-- INICIO FONDO -->
-                <h3>FONDO</h3>
-                <div class="container-fondo">
-                    <div class="container-input fondo">
-                        <label for="input-fondo"></label>
-                        <input type="color" id="input-fondo" value="#000000" name="color-de-fondo">
-                        <span id="span-color-fondo-img">#000000</span>
-                    </div>
-                    <select id="select-tipo-fondo">
-                        <option value="unset">Ninguno</option>
-                        <option value="lighten">Aclarar</option>
-                        <option value="darken">Oscurecer</option>
-                        <option value="difference">Diferencia</option>
-                        <option value="luminosity">Luminosidad</option>
-                        <option value="multiply">Multiplicar</option>
-                    </select>
-                </div>
-                <!-- FIN FONDO -->
+				<!-- inicio panel de texto -->
+				<section class="panel-texto" id="panel-texto">
+					<h2>TEXTO</h2>
+					<div class="container-input container-texto">
+						<label for="input-texto-arriba">SUPERIOR</label>
+						<textarea id="input-texto-arriba">TOP TEXT</textarea>
+					</div>
+					<div class="container-input check">
+						<input
+							type="checkbox"
+							id="quitar-texto-superior"
+							name="sin-texto-superior"
+						/>
+						<label for="quitar-texto-superior">Sin texto superior</label>
+					</div>
+					<div class="container-input container-texto">
+						<label for="input-texto-abajo">INFERIOR</label>
+						<textarea id="input-texto-abajo">BOTTOM TEXT</textarea>
+					</div>
+					<div class="container-input check">
+						<input
+							type="checkbox"
+							id="quitar-texto-inferior"
+							name="sin-texto-inferior"
+						/>
+						<label for="quitar-texto-inferior">Sin texto inferior</label>
+					</div>
 
-                <!-- INICIO FILTROS -->
-                <h3>FILTROS</h3>
-                <div class="container-filtros">
+					<!-- INICIO FUENTE -->
+					<h3>FUENTE</h3>
+					<div class="container-fuente">
+						<select id="seleccionar-fuente">
+							<option value="Arial">Arial</option>
+							<option value="Arial black">Arial black</option>
+							<option value="American Typewriter">American Typewriter</option>
+							<option value="Andale Mono">Andale Mono</option>
+							<option value="omic Sans MS">Comic Sans MS</option>
+							<option value="Helvetica">Helvetica</option>
+							<option value="Impact">Impact</option>
+							<option value="Verdana">Verdana</option>
+							<option value="Times New Roman">Times New Roman</option>
+						</select>
+						<div class="container-tamanio-alineacion">
+							<div class="container-input letra">
+								<label for="input-tamanio-letra"></label>
+								<input
+									type="number"
+									id="input-tamanio-letra"
+									value="40"
+									name="tamanio-letra"
+									min="10"
+									max="60"
+								/>
+							</div>
 
-                    <div class="container-input">
-                        <label for="input-brillo">BRILLO</label>
-                        <input type="range" id="input-brillo" min="0" max="1" value="1" step="0.1" name="brillo">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-opacidad">OPACIDAD</label>
-                        <input type="range" id="input-opacidad" min="0" max="1" value="1" step="0.1" name="opacidad">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-contraste">CONTRASTE</label>
-                        <input type="range" id="input-contraste" min="0" max="100" value="100" step="1" name="contrastre">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-desenfoque">DESENFOQUE</label>
-                        <input type="range" id="input-desenfoque" min="0" max="10" value="0" step="0.1" name="desenfoque">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-escala-grises" class="label-escala-grises">ESCALA DE GRISES</label>
-                        <input type="range" id="input-escala-grises" min="0" max="100" value="0" step="1" name="escala de grises">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-sepia">SEPIA</label>
-                        <input type="range" id="input-sepia" min="0" max="100" value="0" step="1" name="sepia">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-hue">HUE</label>
-                        <input type="range" id="input-hue" min="0" max="359" value="0" step="1" name="hue">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-saturado">SATURADO</label>
-                        <input type="range" id="input-saturado" min="100" max="1000" value="100" step="1" name="saturacion">
-                    </div>
-                    <div class="container-input">
-                        <label for="input-negativo">NEGATIVO</label>
-                        <input type="range" id="input-negativo" min="0" max="1" value="0" step="0.1" name="negativo">
-                    </div>
-                </div>
-                <button class="btn-reestablecer-filtros" id="btn-filtros">Reestablecer filtros</button>
-                <!-- FIN FILTROS -->
-            </section>
-            <!-- Fin panel de imagen -->
+							<div class="container-boton-alineacion">
+								<button class="btn-alineacion" id="alineacion-izquierda">
+									<i class="fa-solid fa-align-left"></i>
+								</button>
+								<button class="btn-alineacion" id="alineacion-centro">
+									<i class="fa-solid fa-align-center"></i>
+								</button>
+								<button class="btn-alineacion" id="alineacion-derecha">
+									<i class="fa-solid fa-align-right"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- FIN FUENTE -->
 
-            <!-- inicio panel de texto -->
-            <section class="panel-texto" id="panel-texto">
-                <h2>TEXTO</h2>
-                <div class="container-input container-texto">
-                    <label for="input-texto-arriba">SUPERIOR</label>
-                    <textarea id="input-texto-arriba">TOP TEXT</textarea>
-                </div>
-                <div class="container-input check">
-                    <input type="checkbox" id="quitar-texto-superior" name="sin-texto-superior">
-                    <label for="quitar-texto-superior">Sin texto superior</label>
-                </div>
-                <div class="container-input container-texto">
-                    <label for="input-texto-abajo">INFERIOR</label>
-                    <textarea id="input-texto-abajo">BOTTOM TEXT</textarea>
-                </div>
-                <div class="container-input check">
-                    <input type="checkbox" id="quitar-texto-inferior" name="sin-texto-inferior">
-                    <label for="quitar-texto-inferior">Sin texto inferior</label>
+					<!-- INICIO COLOR -->
+					<div class="container-color">
+						<div class="div-color">
+							<h3>COLOR</h3>
+							<div class="container-input color">
+								<label for="input-color-letra"></label>
+								<input
+									type="color"
+									id="input-color-letra"
+									value="#000000"
+									name="color-letra"
+								/>
+								<span id="span-color-letra">#000000</span>
+							</div>
+						</div>
+						<div class="div-color">
+							<h3>FONDO</h3>
+							<div class="container-input color">
+								<label for="input-color-fondo"></label>
+								<input
+									type="color"
+									id="input-color-fondo"
+									value="#FFFFFF"
+									name="color-fondo-parrafo"
+								/>
+								<span id="span-color-fondo-texto">#FFFFFF</span>
+							</div>
+						</div>
+					</div>
+					<div class="container-input check">
+						<input
+							type="checkbox"
+							id="input-fondo-transparente"
+							name="fondo-transparente"
+						/>
+						<label for="input-fondo-transparente">Fondo transparente</label>
+					</div>
+					<!-- FIN COLOR -->
 
-                </div>
+					<!-- INICIO CONTORNO -->
+					<h3>CONTORNO</h3>
+					<div class="container-boton-contorno">
+						<button class="btn-contorno" id="btn-sin-contorno">Ninguno</button>
+						<button class="btn-contorno" id="btn-contorno-claro">Claro</button>
+						<button class="btn-contorno" id="btn-contorno-oscuro">
+							Oscuro
+						</button>
+					</div>
+					<!-- FIN CONTORNO -->
 
-                <!-- INICIO FUENTE -->
-                <h3>FUENTE</h3>
-                <div class="container-fuente">
-                    <select id="seleccionar-fuente">
-                        <option value="Arial">Arial</option>
-                        <option value="Arial black">Arial black</option>
-                        <option value="American Typewriter">American Typewriter</option>
-                        <option value="Andale Mono">Andale Mono</option>
-                        <option value="omic Sans MS">Comic Sans MS</option>
-                        <option value="Helvetica">Helvetica</option>
-                        <option value="Impact">Impact</option>
-                        <option value="Verdana">Verdana</option>
-                        <option value="Times New Roman">Times New Roman</option>
-                    </select>
-                    <div class="container-tamanio-alineacion">
-                        <div class="container-input letra">
-                            <label for="input-tamanio-letra"></label>
-                            <input type="number" id="input-tamanio-letra" value="40" name="tamanio-letra" min="10" max="60">
-                        </div>
+					<!-- INICIO ESPACIADO -->
+					<div class="container-input container-espaciado">
+						<label for="input-espaciado">ESPACIADO</label>
+						<input
+							type="number"
+							id="input-espaciado"
+							value="1"
+							min="1"
+							max="30"
+							name="espaciado"
+						/>
+					</div>
 
-                        <div class="container-boton-alineacion">
-                            <button class="btn-alineacion" id="alineacion-izquierda"><i
-                                    class="fa-solid fa-align-left"></i></button>
-                            <button class="btn-alineacion" id="alineacion-centro"><i
-                                    class="fa-solid fa-align-center"></i></button>
-                            <button class="btn-alineacion" id="alineacion-derecha"><i
-                                    class="fa-solid fa-align-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN FUENTE -->
+					<!-- FIN ESPACIADO -->
 
-                <!-- INICIO COLOR -->
-                <div class="container-color">
-                    <div class="div-color">
-                        <h3>COLOR</h3>
-                        <div class="container-input color">
-                            <label for="input-color-letra"></label>
-                            <input type="color" id="input-color-letra" value="#000000" name="color-letra">
-                            <span id="span-color-letra">#000000</span>
-                        </div>
-                    </div>
-                    <div class="div-color">
-                        <h3>FONDO</h3>
-                        <div class="container-input color">
-                            <label for="input-color-fondo"></label>
-                            <input type="color" id="input-color-fondo" value="#FFFFFF" name="color-fondo-parrafo">
-                            <span id="span-color-fondo-texto">#FFFFFF</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-input check">
-                    <input type="checkbox" id="input-fondo-transparente" name="fondo-transparente">
-                    <label for="input-fondo-transparente">Fondo transparente</label>
-
-                </div>
-                <!-- FIN COLOR -->
-
-                <!-- INICIO CONTORNO -->
-                <h3>CONTORNO</h3>
-                <div class="container-boton-contorno">
-                    <button class="btn-contorno" id="btn-sin-contorno">Ninguno</button>
-                    <button class="btn-contorno" id="btn-contorno-claro">Claro</button>
-                    <button class="btn-contorno" id="btn-contorno-oscuro">Oscuro</button>
-                </div>
-                <!-- FIN CONTORNO -->
-
-                <!-- INICIO ESPACIADO -->
-                <div class="container-input container-espaciado">
-                    <label for="input-espaciado">ESPACIADO</label>
-                    <input type="number" id="input-espaciado" value="1" min="1" max="30" name="espaciado">
-                </div>
-                <!-- FIN ESPACIADO -->
-
-                <!-- INICIO INTERLINEADO -->
-                <h3>INTERLINEADO</h3>
-                <div class="container-interlineado">
-                    <select id="seleccionar-interlineado">
-                        <option value="0.8">0.8</option>
-                        <option value="1">1</option>
-                        <option value="1.2">1.2</option>
-                        <option value="1.5">1.5</option>
-                        <option value="2">2</option>
-                        <option value="2.5">2.5</option>
-                    </select>
-                </div>
-                <!-- FIN INTERLINEADO -->
-
-            </section>
-            <!-- FIN PANEL DE TEXTO -->
-
-        </aside>
-    </div>
-    <!-- Fin de aside -->
-    <script src="main.js"></script>
-</body>
-
+					<!-- INICIO INTERLINEADO -->
+					<h3>INTERLINEADO</h3>
+					<div class="container-interlineado">
+						<select id="seleccionar-interlineado">
+							<option value="0.8">0.8</option>
+							<option value="1">1</option>
+							<option value="1.2">1.2</option>
+							<option value="1.5">1.5</option>
+							<option value="2">2</option>
+							<option value="2.5">2.5</option>
+						</select>
+					</div>
+					<!-- FIN INTERLINEADO -->
+				</section>
+				<!-- FIN PANEL DE TEXTO -->
+			</aside>
+		</div>
+		<!-- Fin de aside -->
+		<script src="main.js"></script>
+	</body>
 </html>
