@@ -12,22 +12,33 @@ Este proyecto es un Generador de Memes basado en HTML, CSS y JavaScript. Puedes 
 
 El generador de memes tiene dos modos: oscuro y claro. Puedes alternar entre ellos haciendo clic en el botón "Modo oscuro / Modo claro" en la parte superior del generador.
 
+![Botón de modo oscuro](imagenes/modo-oscuro.png)
+
 ## Paneles de Imagen y Texto
 
 ### Panel de Imagen
 
-Permite cargar una imagen desde una URL o desde tu computadora. También proporciona opciones para ajustar el fondo, aplicar filtros y descargar el meme.
+Permite cargar una imagen desde una URL o desde tu computadora. También proporciona opciones para ajustar el fondo, aplicar filtros y reestablacer filtros.
+
+![Panel de imágenes](imagenes/panel-imagenes.png)
 
 ### Panel de Texto
 
 Permite agregar y personalizar el texto superior e inferior del meme, seleccionar la fuente, ajustar el tamaño y color del texto, y configurar otros estilos de texto.
 
+![Panel de texto](imagenes/panel-texto.png)
+
 ## Cómo Usar
 
 1. Selecciona la pestaña "Imagen" o "Texto" según lo que desees editar.
+
+   ![Botones que cambian el panel](imagenes/botones-paneles.png)
+
 2. Personaliza la imagen o el texto según tus preferencias.
 3. Ajusta los filtros, estilos y colores según desees.
 4. Descarga el meme creado haciendo clic en el botón "Descargar meme".
+
+   ![Botón para descargar meme](imagenes/boton-descargar.png)
 
 ## Personalización Avanzada
 
