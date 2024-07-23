@@ -109,6 +109,9 @@ main {
 }
 
 /* INICIO MEME */
+.container-meme {
+	position: relative;
+}
 .img-meme {
 	background-color: black;
 	height: 70%;
@@ -347,6 +350,7 @@ input[type="color"]::-moz-color-swatch {
 
 textarea {
 	width: 100%;
+	padding: 10px 0px 0px 3px;
 }
 
 /* FUENTE */

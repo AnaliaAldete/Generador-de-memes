@@ -272,11 +272,20 @@ inputColorFondo.addEventListener("input", () => {
 //FONDO TRANSPARENTE
 const fondoTransparente = () => {
 	if (inputFondoTransparente.checked) {
-		textoSuperior.style.backgroundColor = inputFondo.value;
-		textoInferior.style.backgroundColor = inputFondo.value;
+		textoSuperior.style.backgroundColor = "transparent";
+		textoInferior.style.backgroundColor = "transparent";
+		imgMeme.style.height = "100%";
+		textoSuperior.style.position = "absolute";
+		textoInferior.style.position = "absolute";
+		textoSuperior.style.width = "100%";
+		textoInferior.style.width = "100%";
+		textoInferior.style.bottom = "0";
 	} else {
+		imgMeme.style.height = "70%";
 		textoSuperior.style.backgroundColor = inputColorFondo.value;
 		textoInferior.style.backgroundColor = inputColorFondo.value;
+		textoSuperior.style.position = "";
+		textoInferior.style.position = "";
 	}
 };
 
